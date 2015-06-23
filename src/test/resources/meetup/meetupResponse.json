@@ -1,0 +1,58 @@
+{
+  "results": [
+    {
+      "utc_offset": -14400000,
+      "venue": {
+        "zip": "19104",
+        "country": "us",
+        "city": "Philadelphia",
+        "address_1": "3730 Walnut St.",
+        "name": "Huntsman Hall at The Wharton School (UPenn)",
+        "lon": -75.198242,
+        "id": 9836452,
+        "state": "PA",
+        "lat": 39.953175,
+        "repinned": false
+      },
+      "rsvp_limit": 1,
+      "headcount": 0,
+      "visibility": "public",
+      "waitlist_count": 0,
+      "created": 1434566228000,
+      "maybe_rsvp_count": 0,
+      "description": "<p>Jacob Kaplan-Moss is known for his work on Django, but, as he would describe in his PyCon 2015 keynote, many think he had more to do with its creation than he actually did. The theme of that keynote was something that software development organizations—and open source projects—may be grappling with: a myth about developer performance and how it impacts the industry. </p> <p>Jacob will draw on his early experience with Django, his own accomplishments as a long distance runner, and talent acquisition and retention challenges that he’s observed throughout his career, to illustrate how the talent myth sets an \"impossibly high bar for entry\". The fact that any of us are here at all \"is kind of shocking given this myth\". It needs to be dismantled and a community that recognizes that \"average is actually pretty awesome\" should be built in its place. </p> <p>Jacob self-identifies as a mediocre programmer and invites others to join him; \"together we can do our jobs perfectly adequately\". </p> <p>This talk was previously given as the closing Keynote at PyCon 2015. Jacob is in Philadelphia as a guest speaker at the Wharton Web Conference (July 16 at the Wharton School. Tickets: <a href=\"http://whr.tn/wwc\" class=\"linkified\">http://whr.tn/wwc</a>). This talk will take place following the WWC Happy Hour.</p> <p>Note you can not RSVP via meetup.com. You must go to <a href=\"https://www.eventbrite.com/e/the-talent-myth-tickets-17400860442\">this eventbrite page</a> to RSVP.  A suggested donation is collected to benefit <a href=\"http://www.pyladies.com/\">PyLadies</a> ($5 or pay what you can).</p> <p><b>Date</b>: Thursday, July 16, 2015 </p> <p><br/><b>Time</b>: Doors open at 6:30pm. Program runs 7 – 8:00pm. Follow-up Q&amp;A with more networking to follow. </p> <p><b>Location</b>: Wharton School of the Univ. of PA, Huntsman Hall, 3730 Walnut Street, Philadelphia, PA 19104<br/>Room: F85</p>",
+      "how_to_find_us": "Room F85",
+      "event_url": "http://www.meetup.com/phillypug/events/223313303/",
+      "yes_rsvp_count": 1,
+      "name": "The Talent Myth with Jacob Kaplan-Moss",
+      "id": "223313303",
+      "time": 1437085800000,
+      "updated": 1434566613000,
+      "group": {
+        "join_mode": "open",
+        "created": 1258056018000,
+        "name": "The Philadelphia Python Users Group (PhillyPUG)",
+        "group_lon": -75.13999938964844,
+        "id": 1555984,
+        "urlname": "phillypug",
+        "group_lat": 40,
+        "who": "Pythonistas"
+      },
+      "status": "upcoming"
+    }
+  ],
+  "meta": {
+    "next": "",
+    "method": "Events",
+    "total_count": 1,
+    "link": "https://api.meetup.com/2/events",
+    "count": 1,
+    "description": "Access Meetup events using a group, member, or event id. Events in private groups are available only to authenticated members of those groups. To search events by topic or location, see [Open Events](/meetup_api/docs/2/open_events).",
+    "lon": "",
+    "title": "Meetup Events v2",
+    "url": "https://api.meetup.com/2/events?offset=0&format=json&limited_events=False&group_urlname=phillypug&sig=d29982180b16b35cc410d3d5ad8c59d9b93f8c8b&photo-host=public&time=%2C1m&page=20&fields=&sig_id=188504148&order=time&desc=false&status=upcoming",
+    "id": "",
+    "updated": 1434566613000,
+    "lat": ""
+  }
+}
