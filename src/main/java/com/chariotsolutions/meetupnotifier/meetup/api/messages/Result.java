@@ -9,12 +9,12 @@ public class Result {
   private String description;
   @JsonProperty("event_url")
   private String eventUrl;
-  private Venue venue;
+  private Venue venue = new Venue();
   @JsonProperty("how_to_find_us")
   private String howToFindUs;
-  private double time;
+  private long time;
   private String timezone;
-  private double duration = 1.08e7;
+  private long duration = 1000 * 60 * 60 * 3; // Three hours in millis. Default value
   private String id;
   private Group group;
 
@@ -58,11 +58,11 @@ public class Result {
     this.howToFindUs = howToFindUs;
   }
 
-  public double getTime() {
+  public long getTime() {
     return time;
   }
 
-  public void setTime(double time) {
+  public void setTime(long time) {
     this.time = time;
   }
 
@@ -74,11 +74,11 @@ public class Result {
     this.timezone = timezone;
   }
 
-  public double getDuration() {
+  public long getDuration() {
     return duration;
   }
 
-  public void setDuration(double duration) {
+  public void setDuration(long duration) {
     this.duration = duration;
   }
 
