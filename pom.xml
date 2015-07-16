@@ -51,6 +51,22 @@
       <artifactId>jsoup</artifactId>
       <version>${jsoup.version}</version>
     </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-context</artifactId>
+      <version>${spring-context.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>log4j</groupId>
+      <artifactId>log4j</artifactId>
+      <version>${log4j.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-log4j12</artifactId>
+      <version>${slf4j-log4j12.version}</version>
+    </dependency>
+
 
   </dependencies>
 
@@ -67,7 +83,7 @@
             <phase>validate</phase>
             <configuration>
               <configLocation>${maven-checkstyle-plugin.config}</configLocation>
-              <violationSeverity>warning</violationSeverity>
+              <!--<violationSeverity>warning</violationSeverity>-->
             </configuration>
             <goals>
               <goal>check</goal>
@@ -87,6 +103,15 @@
           </dependency>
         </dependencies>
       </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>${maven-compiler-plugin.version}</version>
+        <configuration>
+          <source>1.8</source>
+          <target>1.8</target>
+        </configuration>
+      </plugin>
 
     </plugins>
   </build>
@@ -104,6 +129,10 @@
     <google-oauth-client-jetty.version>1.19.0</google-oauth-client-jetty.version>
     <jsoup.version>1.8.2</jsoup.version>
     <commons-lang3.version>3.4</commons-lang3.version>
+    <spring-context.version>4.1.7.RELEASE</spring-context.version>
+    <log4j.version>1.2.17</log4j.version>
+    <slf4j-log4j12.version>1.7.12</slf4j-log4j12.version>
+    <maven-compiler-plugin.version>2.3.2</maven-compiler-plugin.version>
   </properties>
 
 </project>

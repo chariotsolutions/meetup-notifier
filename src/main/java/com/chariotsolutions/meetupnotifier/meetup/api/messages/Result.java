@@ -10,6 +10,8 @@ public class Result {
   @JsonProperty("event_url")
   private String eventUrl;
   private Venue venue = new Venue();
+  @JsonProperty("venue_visibility")
+  private String venueVisibility;
   @JsonProperty("how_to_find_us")
   private String howToFindUs;
   private long time;
@@ -48,6 +50,14 @@ public class Result {
 
   public void setVenue(Venue venue) {
     this.venue = venue;
+  }
+
+  public String getVenueVisibility() {
+    return venueVisibility;
+  }
+
+  public void setVenueVisibility(String venueVisibility) {
+    this.venueVisibility = venueVisibility;
   }
 
   public String getHowToFindUs() {

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:task="http://www.springframework.org/schema/task"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/task
+        http://www.springframework.org/schema/task/spring-task.xsd">
+
+  <context:component-scan base-package="com.chariotsolutions.meetupnotifier"/>
+  <context:property-placeholder location="classpath:meetupGroups.properties"/>
+
+  <task:scheduled-tasks>
+    <task:scheduled ref="meetupNotifierImpl" method="queryAndNotify"
+                    fixed-rate="${checkschedule.fixed-rate}"
+                    initial-delay="${checkschedule.initial-delay}"/>
+  </task:scheduled-tasks>
+
+</beans>

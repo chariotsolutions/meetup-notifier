@@ -14,10 +14,24 @@ public class GoogleConverter implements ResultConverter<Event> {
   public Event convertTo(Result sourceResult) {
     Event evt = new Event()
         .setSummary(sourceResult.getName())
-        .setLocation(sourceResult.getVenue().toString())
         .setDescription(sourceResult.getDescription());
     setTimes(evt, sourceResult);
+    setLocation(evt, sourceResult);
     return evt;
+  }
+
+  private static void setLocation(Event evt, Result result) {
+    String location = result.getVenue().toString();
+    if (location.equals("")) {
+      if (result.getVenueVisibility().equals("members")) {
+        location = "Location has been marked private, view the group on meetup.com for details.";
+      } else {
+        location = "The location for this meetup has not yet been set."
+                 + "View the group on meetup.com for updates.";
+      }
+    }
+
+    evt.setLocation(location);
   }
 
   private static void setTimes(Event evt, Result result) {

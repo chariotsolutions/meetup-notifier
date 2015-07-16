@@ -127,6 +127,6 @@ public class Venue {
 
   @Override
   public String toString() {
-    return StringUtils.join(new String[]{address1, city, state, zip}, " ");
+    return StringUtils.join(new String[]{address1, city, state, zip}, " ").trim();
   }
 }

@@ -8,15 +8,20 @@ import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
+import org.junit.validator.ValidateWith;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 
+@Component
 public class MeetupQueryExecutor {
 
-  private String apiKey;
+  private static String apiKey;
 
-  public MeetupQueryExecutor(String apiKey) {
-    this.apiKey = apiKey;
+  @Value("${meetup.key}")
+  public void setApiKey(String apiKey) {
+    MeetupQueryExecutor.apiKey = apiKey;
   }
 
   public Results executeQuery(MeetupQuery meetupQuery) throws IOException {
