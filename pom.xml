@@ -57,6 +57,11 @@
       <version>${spring-context.version}</version>
     </dependency>
     <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-jdbc</artifactId>
+      <version>${spring-jdbc.version}</version>
+    </dependency>
+    <dependency>
       <groupId>log4j</groupId>
       <artifactId>log4j</artifactId>
       <version>${log4j.version}</version>
@@ -65,6 +70,16 @@
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-log4j12</artifactId>
       <version>${slf4j-log4j12.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.hsqldb</groupId>
+      <artifactId>hsqldb</artifactId>
+      <version>${hsqldb.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.google.guava</groupId>
+      <artifactId>guava</artifactId>
+      <version>${guava.version}</version>
     </dependency>
 
 
@@ -112,6 +127,14 @@
           <target>1.8</target>
         </configuration>
       </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <version>${exec-maven-plugin.version}</version>
+        <configuration>
+          <mainClass>com.chariotsolutions.meetupnotifier.App</mainClass>
+        </configuration>
+      </plugin>
 
     </plugins>
   </build>
@@ -133,6 +156,10 @@
     <log4j.version>1.2.17</log4j.version>
     <slf4j-log4j12.version>1.7.12</slf4j-log4j12.version>
     <maven-compiler-plugin.version>2.3.2</maven-compiler-plugin.version>
+    <exec-maven-plugin.version>1.2.1</exec-maven-plugin.version>
+    <spring-jdbc.version>4.1.7.RELEASE</spring-jdbc.version>
+    <hsqldb.version>2.3.3</hsqldb.version>
+    <guava.version>18.0</guava.version>
   </properties>
 
 </project>

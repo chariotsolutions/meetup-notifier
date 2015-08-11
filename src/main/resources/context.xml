@@ -3,15 +3,19 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:task="http://www.springframework.org/schema/task"
+       xmlns:jdbc="http://www.springframework.org/schema/jdbc"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd
         http://www.springframework.org/schema/task
-        http://www.springframework.org/schema/task/spring-task.xsd">
+        http://www.springframework.org/schema/task/spring-task.xsd
+        http://www.springframework.org/schema/jdbc
+        http://www.springframework.org/schema/jdbc/spring-jdbc.xsd">
 
   <context:component-scan base-package="com.chariotsolutions.meetupnotifier"/>
   <context:property-placeholder location="classpath:meetupGroups.properties"/>
+
 
   <task:scheduled-tasks>
     <task:scheduled ref="meetupNotifierImpl" method="queryAndNotify"
@@ -19,4 +23,12 @@
                     initial-delay="${checkschedule.initial-delay}"/>
   </task:scheduled-tasks>
 
+  <jdbc:embedded-database id="dataSource" type="HSQL"/>
+  <jdbc:initialize-database data-source="dataSource">
+    <jdbc:script location="classpath:schema.sql"/>
+  </jdbc:initialize-database>
+
+  <bean class="org.springframework.jdbc.core.JdbcTemplate" name="dataSourceTemplate">
+    <constructor-arg ref="dataSource"/>
+  </bean>
 </beans>
