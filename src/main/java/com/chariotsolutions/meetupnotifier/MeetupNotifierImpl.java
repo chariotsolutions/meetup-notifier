@@ -1,6 +1,7 @@
 package com.chariotsolutions.meetupnotifier;
 
 
+import com.chariotsolutions.meetupnotifier.meetup.api.InvalidResultException;
 import com.google.api.services.calendar.model.Event;
 
 import com.chariotsolutions.meetupnotifier.meetup.api.GoogleConverter;
@@ -25,7 +26,7 @@ public class MeetupNotifierImpl {
 
   private String[] groups;
 
-  public void queryAndNotify() throws IOException {
+  public void queryAndNotify() throws IOException, InvalidResultException {
     for (String meetupGroupName : groups) {
       List<Result> results = new MeetupQueryExecutor()
           .executeQuery(new MeetupQuery(meetupGroupName)).getResults();

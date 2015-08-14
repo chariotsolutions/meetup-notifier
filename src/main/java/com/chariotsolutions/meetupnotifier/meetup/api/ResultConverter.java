@@ -4,5 +4,5 @@ import com.chariotsolutions.meetupnotifier.meetup.api.messages.Result;
 
 @FunctionalInterface
 public interface ResultConverter<T> {
-  T convertTo(Result sourceResult);
+  T convertTo(Result sourceResult) throws InvalidResultException;
 }

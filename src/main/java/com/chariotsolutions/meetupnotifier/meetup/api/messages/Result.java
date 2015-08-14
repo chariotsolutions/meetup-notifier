@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Result {
   private String name;
-  private String description;
+  private String description = "";
   @JsonProperty("event_url")
   private String eventUrl;
   private Venue venue = new Venue();

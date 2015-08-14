@@ -10,8 +10,14 @@ import java.util.Date;
 
 public class GoogleConverter implements ResultConverter<Event> {
 
+  private static final String MEMBERS_ONLY = "Location has been marked private, view the group on meetup.com for details.";
+  private static final String NOT_SET = "The location for this meetup has not yet been set. View the group on meetup.com for updates.";
+
   @Override
-  public Event convertTo(Result sourceResult) {
+  public Event convertTo(Result sourceResult) throws InvalidResultException {
+
+    validate(sourceResult);
+
     Event evt = new Event()
         .setSummary(sourceResult.getName())
         .setDescription(sourceResult.getDescription());
@@ -20,21 +26,20 @@ public class GoogleConverter implements ResultConverter<Event> {
     return evt;
   }
 
-  private static void setLocation(Event evt, Result result) {
+  private void setLocation(Event evt, Result result) {
     String location = result.getVenue().toString();
     if (location.equals("")) {
       if (result.getVenueVisibility().equals("members")) {
-        location = "Location has been marked private, view the group on meetup.com for details.";
+        location = MEMBERS_ONLY;
       } else {
-        location = "The location for this meetup has not yet been set."
-                 + " View the group on meetup.com for updates.";
+        location = NOT_SET;
       }
     }
 
     evt.setLocation(location);
   }
 
-  private static void setTimes(Event evt, Result result) {
+  private void setTimes(Event evt, Result result) {
     long startTime = result.getTime();
     long endTime = startTime + result.getDuration();
     String timezone = result.getTimezone();
@@ -52,5 +57,23 @@ public class GoogleConverter implements ResultConverter<Event> {
 
     evt.setStart(start);
     evt.setEnd(end);
+  }
+
+  private void validate(Result result) throws InvalidResultException {
+    if (result.getVenueVisibility() == null) {
+      throw new InvalidResultException("Venue visibility can not be null");
+    }
+
+    if (result.getDuration() < 0) {
+      throw new InvalidResultException("A negative duration is invalid.");
+    }
+
+    if (result.getName() == null) {
+      throw new InvalidResultException("Event name can not be null");
+    }
+//
+//    if (new Date(result.getTime()).before(new Date())) {
+//      throw new InvalidResultException("This event starts in the past");
+//    }
   }
 }
